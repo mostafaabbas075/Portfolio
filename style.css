@@ -238,7 +238,7 @@ section h2 i {
   border-radius: 15px;
   border: 1px solid rgba(188, 19, 254, 0.2);
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة نطوطة شوية */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
 }
 
@@ -334,8 +334,7 @@ section h2 i {
 /* ================== CV Section ================== */
 #cv {
   text-align: center;
-  padding-bottom: 120px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 50px;
 }
 
 .btn-cv {
@@ -361,6 +360,62 @@ section h2 i {
   background: var(--neon-cyan);
   color: #000;
   box-shadow: 0 0 30px var(--neon-cyan);
+  transform: translateY(-5px);
+}
+
+/* ================== Contact Section ================== */
+#contact {
+  padding-top: 50px;
+  padding-bottom: 120px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 40px;
+  background: var(--card-bg);
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.email-btn {
+  color: var(--neon-cyan);
+  border: 2px solid var(--neon-cyan);
+}
+
+.email-btn:hover {
+  background: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 0 25px var(--neon-cyan);
+  transform: translateY(-5px);
+}
+
+.wa-btn {
+  color: #25D366;
+  border: 2px solid #25D366;
+}
+
+.wa-btn:hover {
+  background: #25D366;
+  color: #000;
+  box-shadow: 0 0 25px #25D366;
   transform: translateY(-5px);
 }
 
