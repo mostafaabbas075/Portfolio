@@ -387,11 +387,11 @@ section h2 i {
 .contact-btn {
   display: inline-flex;
   align-items: center;
-  gap: 20px;
-  padding: 25px 60px; /* حجم ضخم للزرار */
+  gap: 10px;
+  padding: 15px 30px; /* حجم ضخم للزرار */
   background: rgba(15, 20, 35, 0.8) !important; /* خلفية صلبة عشان تبان كارت مش كلمة طايرة */
   border-radius: 15px !important; /* شكل كارت نيون */
-  font-size: 1.6em !important; /* خط كبير جداً وواضح */
+  font-size: 1.1em !important; /* خط كبير جداً وواضح */
   font-weight: 700 !important;
   text-decoration: none !important; /* إلغاء أي خط تحت الكلمة */
   text-transform: uppercase;
@@ -402,7 +402,7 @@ section h2 i {
 }
 
 .contact-btn i {
-  font-size: 2em !important; /* الأيقونات بقت عملاقة */
+  font-size: 1.3em !important; /* الأيقونات بقت عملاقة */
 }
 
 /* زرار الإيميل */
