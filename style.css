@@ -75,7 +75,6 @@ header {
   width: 100%;
 }
 
-/* حركة الصورة */
 .profile-pic-container {
   position: relative;
   animation: float 6s ease-in-out infinite;
@@ -363,60 +362,75 @@ section h2 i {
   transform: translateY(-5px);
 }
 
-/* ================== Contact Section ================== */
+/* ================== Contact Section (الجديد بالكامل) ================== */
 #contact {
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 120px;
   border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.contact-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 60px;
+  font-size: 1.2em;
 }
 
 .contact-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px; /* مسافة كبيرة بينهم */
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
+/* الزراير الضخمة */
 .contact-btn {
   display: inline-flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px 40px;
-  background: var(--card-bg);
-  border-radius: 50px;
-  font-size: 1.2em;
-  font-weight: 600;
-  text-decoration: none;
+  gap: 20px;
+  padding: 25px 60px; /* حجم ضخم للزرار */
+  background: rgba(15, 20, 35, 0.8) !important; /* خلفية صلبة عشان تبان كارت مش كلمة طايرة */
+  border-radius: 15px !important; /* شكل كارت نيون */
+  font-size: 1.6em !important; /* خط كبير جداً وواضح */
+  font-weight: 700 !important;
+  text-decoration: none !important; /* إلغاء أي خط تحت الكلمة */
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.4s ease;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
+.contact-btn i {
+  font-size: 2em !important; /* الأيقونات بقت عملاقة */
+}
+
+/* زرار الإيميل */
 .email-btn {
-  color: var(--neon-cyan);
-  border: 2px solid var(--neon-cyan);
+  color: #00f3ff !important;
+  border: 2px solid #00f3ff !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
 }
 
 .email-btn:hover {
-  background: var(--neon-cyan);
-  color: #000;
-  box-shadow: 0 0 25px var(--neon-cyan);
-  transform: translateY(-5px);
+  background: #00f3ff !important;
+  color: #000 !important;
+  box-shadow: 0 0 30px #00f3ff, 0 0 60px #00f3ff;
+  transform: translateY(-10px) scale(1.05);
 }
 
+/* زرار الواتساب */
 .wa-btn {
-  color: #25D366;
-  border: 2px solid #25D366;
+  color: #25D366 !important;
+  border: 2px solid #25D366 !important;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.1);
 }
 
 .wa-btn:hover {
-  background: #25D366;
-  color: #000;
-  box-shadow: 0 0 25px #25D366;
-  transform: translateY(-5px);
+  background: #25D366 !important;
+  color: #000 !important;
+  box-shadow: 0 0 30px #25D366, 0 0 60px #25D366;
+  transform: translateY(-10px) scale(1.05);
 }
 
 /* ================== Responsive Design ================== */
@@ -445,5 +459,10 @@ section h2 i {
 
   .project-card:hover {
     transform: translateY(-10px);
+  }
+  
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
