@@ -1,14 +1,27 @@
+/* ================== CSS Reset & Variables ================== */
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary-color: #38bdf8;
+  --primary-hover: #0284c7;
+  --gradient-bg: linear-gradient(135deg, #0f172a, #1e1b4b);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -17,192 +30,307 @@ body {
   padding: 0 20px;
 }
 
-/* Header Styles */
+/* ================== Header Styles ================== */
 header {
-  background: linear-gradient(135deg, #2c3e50, #3498db);
-  color: white;
-  padding: 40px 20px;
+  background: var(--gradient-bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+  width: 100%;
+}
+
+.profile-pic-container {
+  position: relative;
+}
+
+.profile-pic-container::after {
+  content: '';
+  position: absolute;
+  top: -10px; right: -10px; bottom: -10px; left: -10px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
 }
 
 .profile-pic {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: 5% 20%;
-  border: 4px solid white;
+  object-position: top;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .header-text {
   flex: 1;
-  text-align: left;
 }
 
 header h1 {
-  font-size: 2.8em;
-  margin-bottom: 10px;
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  font-size: 1.3em;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.social-links {
-  margin-top: 10px;
-}
-
-.social-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
   font-size: 1.2em;
-  transition: color 0.3s;
+  margin-bottom: 30px;
+  line-height: 2;
+  color: var(--text-muted);
 }
 
-.social-links a:hover {
-  color: #f1c40f;
+.subtitle i {
+  color: var(--primary-color);
+  width: 25px;
 }
 
-/* Section Styles */
+/* Social Buttons */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+.social-btn:hover {
+  background: var(--primary-color);
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+.social-btn.linkedin:hover {
+  background: #0a66c2;
+  color: #fff;
+  border-color: #0a66c2;
+  box-shadow: 0 10px 20px rgba(10, 102, 194, 0.3);
+}
+
+/* ================== General Sections ================== */
 section {
-  padding: 60px 20px;
+  padding: 100px 20px;
+}
+
+.section-dark {
+  background-color: var(--bg-dark);
+}
+
+.section-light {
+  background-color: #152033; /* Slightly lighter for contrast */
 }
 
 section h2 {
   text-align: center;
-  font-size: 2em;
-  margin-bottom: 40px;
-  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 60px;
+  color: var(--text-main);
 }
 
-/* About Section */
-#about {
-  background: white;
+section h2 i {
+  color: var(--primary-color);
+  margin-right: 10px;
 }
 
-#about p {
-  max-width: 800px;
+/* ================== About Section ================== */
+.about-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.about-card p {
   font-size: 1.1em;
-  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
 
-/* Skills Section */
-#skills {
-  background: #ecf0f1;
+.about-card p:first-child {
+  font-size: 1.3em;
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 15px;
 }
 
+/* ================== Skills Section ================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
 .skill-item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
-  transition: transform 0.3s;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
 }
 
 .skill-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-icon {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
 }
 
 .skill-item h3 {
   font-size: 1.3em;
-  margin-bottom: 10px;
-  color: #2c3e50;
+  margin-bottom: 15px;
+  color: var(--text-main);
 }
 
 .skill-item p {
-  font-size: 1em;
-  color: #7f8c8d;
+  font-size: 0.95em;
+  color: var(--text-muted);
 }
 
-/* Projects Section */
-#projects {
-  background: white;
+/* ================== Projects Section ================== */
+.projects-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .project-card {
-  background: #f9f9f9;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.project-content {
+  padding: 40px;
 }
 
 .project-card h3 {
-  font-size: 1.4em;
-  margin-bottom: 10px;
-  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: var(--text-main);
 }
 
 .project-card p {
-  color: #7f8c8d;
-}
-
-/* CV Section */
-#cv {
-  background: #ecf0f1;
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #3498db;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.1em;
-  transition: background 0.3s;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
-.btn:hover {
-  background: #2980b9;
+.tech-tag {
+  display: inline-block;
+  padding: 5px 15px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.85em;
+  margin-right: 10px;
+  font-weight: 600;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* ================== CV Section ================== */
+#cv {
+  text-align: center;
+  padding-bottom: 120px;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  background: var(--primary-color);
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+}
+
+.btn-cv:hover {
+  background: var(--primary-hover);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
+}
+
+/* ================== Responsive Design ================== */
+@media (max-width: 900px) {
   .header-content {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+    margin-top: 50px;
   }
-
-  .header-text {
-    text-align: center;
-  }
-
+  
   .profile-pic {
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 250px;
   }
 
   header h1 {
-    font-size: 2.2em;
+    font-size: 2.5em;
   }
 
-  .subtitle {
-    font-size: 1.1em;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  section h2 {
-    font-size: 1.8em;
+  .social-btn {
+    margin: 10px;
   }
 }
